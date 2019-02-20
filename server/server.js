@@ -3,22 +3,27 @@ const express= require('express');
 const bodyParser= require('body-parser');
 const mysql = require('mysql');
 const session = require('express-session');
+const fs = require('fs');
+const encrypt= require('./encryptFolder.js');
+const decrypt= require('./decryptFolder.js');
 
+
+//Declaring constants
+var key = 'Sacred@Coders';
+var options = { algorithm: 'aes256' };
 
 //Object Creation
 const app= express();
 
 //Middleware
 app.use(bodyParser.urlencoded({ extended: true }))
-
+app.use(bodyParser.json());
 app.use(session({
 	secret: "sacred coders",
 	resave: false,
 	saveUninitialized: false
 
 	}));
-
-
 
 app.use(function(req, res, next) {
     res.header("Access-Control-Allow-Origin", "*");
@@ -53,11 +58,17 @@ app.post('/logout',(req,res)=>{
 	if(req.session.user)
 	req.session.user=null;
 	res.send("Logged out");
-
-
 });
 
+app.all('/encrypt',(req,res)=>{
+	encrypt.enc('input.txt','encrypted_output.txt',key,options);
+	res.send('Successfully encrypted');
+});
 
+app.all('/decrypt',(req,res)=>{
+	decrypt.dec('encrypted_output.txt','input.txt',key,options);
+	res.send('Successfully decrypted');
+});
 
 
 
