@@ -30,7 +30,7 @@ app.use(function(req, res, next) {
 //Login
 
 app.post('/login',function (req,res){
-	console.log('Got request for /login');
+	console.log('Got request for /Login');
 	//console.log(req);
 	const userName= req.body.user;
 	const password= req.body.pass;
