@@ -38,7 +38,6 @@ contract MediChain {
     struct Treatment {
         uint tId;  //d1.d2.d3$pn
         string name;
-        //uint[] treatmentId;
         uint[] dId;
 
     }
@@ -95,6 +94,13 @@ contract MediChain {
         return 1;
     }
 
+    //Mapping of patient and treatment(adding all the treatments the patient has undergone)
+    function addTreatmentToPatient(uint _pId,uint _tId) public payable returns (uint) {
+        patientMapping[_pId].treatmentId.push(_tId); 
+        return 1;
+    }
+
+
     //Retrieve patient details
     function getPatient(uint _pId) public view returns (string , string ) {
         return (patientMapping[_pId].firstName,patientMapping[_pId].lastName);
@@ -106,9 +112,10 @@ contract MediChain {
     }
 
 
-    //
-    function getPatientArray(uint _dId) public view returns (uint[]) {
-        return (doctorMapping[_dId].patientId);
+    //Retrieve array of treatments which patient has undergone
+    function getTreatmentArray(uint _pId) public view returns (uint[]) {
+        return (patientMapping[_pId].treatmentId);
     }
+
 
 }
