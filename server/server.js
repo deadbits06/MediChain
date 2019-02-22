@@ -65,7 +65,7 @@ app.post('/patientData',(req,res)=>{
 	console.log('Patient data request');
 	const values=[{'id':'a','PatientName':'Alok'},{'id':'b','PatientName':'Rahul'}];
 	res.send(values);
-
+});
 
 
 
