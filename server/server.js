@@ -60,6 +60,14 @@ app.all('/decrypt',(req,res)=>{
 	res.send('Successfully decrypted');
 });
 
+app.post('/patientData',(req,res)=>{
+	const patient=req.body.user;
+	console.log('Patient data request');
+	const values=[{'id':'a','PatientName':'Alok'},{'id':'b','PatientName':'Rahul'}];
+	res.send(values);
+
+
+
 
 
 //listening port
