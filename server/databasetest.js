@@ -11,12 +11,20 @@ const passport = require('passport');
 const LocalStrategy = require('passport-local').Strategy;
 const multer = require('multer');
 const path = require('path');
+const encrypt= require('./encryptFolder.js');
+const decrypt= require('./decryptFolder.js');
+
+
+var key = 'Sacred@Coders';
+var options = { algorithm: 'aes256' };
 
 app.use(express.static(__dirname + '/uploads'));
 
 const Storage = multer.diskStorage({
 	filename : function(req,file,cb){
-		cb(null , Date.now() + file.originalname)
+		let temp = Date.now() + file.originalname;
+		cb(null , temp)
+		encrypt.enc('./uploads/'+temp,'./uploads/encrypted_output.txt',key,options);
 	},
 	destination : function(req,file,cb){
 		cb(null, 'uploads/')
@@ -58,6 +66,12 @@ app.get('/test',(req,res)=>{
 
 app.post('/upload',upload.single('Image'),(req,res)=>{
 	console.log(req.file);
+});
+
+
+app.get('/decrypt',(req,res)=>{
+	console.log("isnide decrypt");
+	decrypt.dec('./uploads/encrypted_output.txt','./uploads/1.jpg',key,options);
 });
 
 
@@ -216,5 +230,11 @@ app.get('/patientsTreated',(req,res)=>{
 	});
 	//me.save(array);
 });
+
+
+
+dId = 1;
+let temp = [tId:"1.2.3$p1",tId:"1.3$p2"tId:"3$p3"tId:"1.2.3$p4"];
+
 
 app.listen(8080);
