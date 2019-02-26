@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/_170sdp"
+    android:background="@drawable/n3"
+    android:gravity="top"
+    android:padding="@dimen/_20sdp"
+    android:theme="@style/ThemeOverlay.AppCompat.Dark">
+
+    <ImageView
+        android:layout_width="@dimen/_100sdp"
+        android:layout_height="@dimen/_60sdp"
+        android:src="@drawable/nav_logo"
+        android:layout_marginBottom="@dimen/_20sdp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/_20sdp"
+        android:textSize="@dimen/_15sdp"
+        android:textColor="@color/white"
+        android:text="Doctor Name "
+        android:id="@+id/tv_doctor"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body1" />
+
+    <TextView
+
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="@dimen/_12sdp"
+
+        android:text="Gmail.com"
+        android:textColor="@color/white"
+        />
+
+
+
+</LinearLayout>

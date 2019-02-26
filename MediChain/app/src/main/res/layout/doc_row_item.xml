@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="100dp"
+    android:layout_marginTop="5dp"
+    android:padding="8dp"
+    android:background="@drawable/list_back"
+    android:id="@+id/docContainer">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:id="@+id/treatment_name"
+        android:text="Treatment Name "
+        android:textSize="25sp"
+        android:textStyle="bold"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:id="@+id/doc_url"
+        android:text="Document URL "
+        android:textSize="20sp"
+        android:textStyle="bold"/>
+
+
+
+</LinearLayout>
