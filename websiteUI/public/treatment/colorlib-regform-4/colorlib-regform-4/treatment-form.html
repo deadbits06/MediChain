@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Title Page-->
+    <title>Patient Treatment</title>
+
+    <!-- Icons font CSS-->
+    <link href="vendor/mdi-font/css/material-design-iconic-font.min.css" rel="stylesheet" media="all">
+    <link href="vendor/font-awesome-4.7/css/font-awesome.min.css" rel="stylesheet" media="all">
+    <!-- Font special for pages-->
+    <link href="https://fonts.googleapis.com/css?family=Poppins:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+
+    <!-- Vendor CSS-->
+    <link href="vendor/select2/select2.min.css" rel="stylesheet" media="all">
+    <link href="vendor/datepicker/daterangepicker.css" rel="stylesheet" media="all">
+
+    <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
+    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+    <!------ Include the above in your HEAD tag ---------->
+
+    <!-- Latest compiled and minified CSS -->
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
+
+<!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+<!-- Popper JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"></script>
+
+    <!-- Main CSS-->
+    <link href="css/main.css" rel="stylesheet" media="all">
+
+    <script
+      src="https://code.jquery.com/jquery-3.3.1.js"
+      integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+      crossorigin="anonymous"></script>
+
+    <style>
+/*.btn {
+  background-color: DodgerBlue;
+  border: none;
+  color: white;
+  /*padding: 12px 30px;*/
+  cursor: pointer;
+  font-size: 20px;
+}
+
+/* Darker background on mouse-over */
+/*.btn:hover {
+  background-color: RoyalBlue;
+}
+*/
+    /*.input-group .label:after {
+    content:"*";
+    color:red;
+    }
+    */
+
+    </style>
+
+</head>
+
+<body>
+    <div class="page-wrapper bg-gra-02 p-t-130 p-b-100 font-poppins">
+        <div class="wrapper wrapper--w680">
+            <div class="card card-4">
+                <div class="card-body">
+                    <h2 class="title">Patient Treatment Information</h2>
+                    <form method="POST">
+                        <div class="row row-space">
+                            <div class="col-sm-10">
+                                <div class="input-group">
+                                    <label class="label">patient name</label>
+                                    <input class="input--style-4" type="text" name="pat_name">
+                                </div>
+                            </div>
+                            <div class="col-sm-10">
+                                <div class="input-group">
+                                    <label class="label">patient id</label>
+                                    <input class="input--style-4" type="text" name="pat_id">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="input-group">
+                            <label class="label">Treatment details</label>
+                            <!--<div class="p-t-10">
+                                <textarea class="form-control" rows="10" cols="80" id="treat-details"></textarea>
+                            </div>-->
+                        </div>
+                        <div class="row clearfix">
+                    		<div class="col-md-12 column">
+                    			<table class="table table-bordered table-hover" id="tab_logic">
+                    				<thead>
+                    					<tr >
+                    						<th class="text-center">
+                    							#
+                    						</th>
+                    						<th class="text-center">
+                    							Date
+                    						</th>
+                    						<th class="text-center">
+                    							Name
+                    						</th>
+                    						<th class="text-center">
+                    							Description
+                    						</th>
+                    					</tr>
+                    				</thead>
+                    				<tbody>
+                    					<tr id='addr0'>
+                    						<td>
+                    						1
+                    						</td>
+                    						<td>
+                    						<input type="text" name='date0'  placeholder='Date' class="form-control"/>
+                    						</td>
+                    						<td>
+                    						<input type="text" name='name0' placeholder='Name' class="form-control"/>
+                    						</td>
+                    						<td>
+                    						<input type="text" name='description0' placeholder='Description' class="form-control"/>
+                    						</td>
+                    					</tr>
+                              <tr id='addr1'></tr>
+                    				</tbody>
+                    			</table>
+                    		</div>
+                    	</div>
+                      <!--<div class="container-->
+                      <div class="p-t-10">
+                    </div>
+                    	<button type="button" class="btn btn--radius-2 "><a id="add_row"><i class="fa fa-plus"></i></a></button>
+                      <button type="button" class="btn btn--radius-2"><a id='delete_row' ><i class="fa fa-minus"></i></a></button>
+
+
+                        <label class="label">doctors involved in treatment :</label>
+                        <!--<div id="text-div" class="input--style-4">-->
+                          <div class="row clearfix">
+                      		<div class="col-md-12 column">
+                      			<table class="table table-bordered table-hover" id="doc_add">
+                      				<thead>
+                      					<tr >
+                      						<th class="text-center">
+                      							#
+                      						</th>
+                      						<th class="text-center">
+                      							ID
+                      						</th>
+                      						<th class="text-center">
+                      							Name
+                      						</th>
+                      					</tr>
+                      				</thead>
+                      				<tbody>
+                      					<tr id='add0'>
+                      						<td>
+                      						1
+                      						</td>
+                      						<td>
+                      						<input type="text" name='id0'  placeholder='ID' class="form-control"/>
+                      						</td>
+                      						<td>
+                      						<input type="text" name='nam0' placeholder='Name' class="form-control"/>
+                      						</td>
+                      					</tr>
+                                <tr id='add1'></tr>
+                      				</tbody>
+                      			</table>
+                      		</div>
+
+                        </div>
+                        <div class="p-t-10">
+                        <button type="button" class="btn btn--radius-2"><a id="addNewInput"><i class="fa fa-plus"></i></a></button>
+                      </div>
+                        <!--<button type="button" id="getAllInputData" name="button">Get Data</button>-->
+                      </div>
+
+
+                      <div class="col-sm-10">
+                          <div class="input-group">
+                              <label class="label">medical reports :</label>
+                                  <div><button class="btn btn--radius-2 btn--blue"><i class="fa fa-download"></i> Download</button></div>
+                          </div>
+                      </div>
+
+                        <div class="p-t-15">
+                            <button class="btn btn--radius-2 btn--blue" type="submit" style="position:absolute;">Submit</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+  <!--  </div>-->
+
+    <!-- Jquery JS-->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <!-- Vendor JS-->
+    <script src="vendor/select2/select2.min.js"></script>
+    <script src="vendor/datepicker/moment.min.js"></script>
+    <script src="vendor/datepicker/daterangepicker.js"></script>
+
+    <!-- Main JS-->
+    <script src="js/global.js"></script>
+    <script type="text/javascript">
+        $(function() {
+          $("#addNewInput").on('click', function() {
+            $("#text-div").append("<input id='input-field' name='name'></input>")
+            $('#text-div').children().last().focus()
+          })
+
+          $("#myInput").on("keyup", function() {
+            var value = $(this).val().toLowerCase();
+            $("#myTable tr").filter(function() {
+              $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+            });
+          });
+
+      var i=1;
+     $("#add_row").click(function(){
+
+      $('#addr'+i).html("<td>"+ (i+1) +"</td><td><input name='date"+i+"' type='text' placeholder='Date' class='form-control input-md'  /> </td><td><input  name='name"+i+"' type='text' placeholder='Name'  class='form-control input-md'></td><td><input  name='description"+i+"' type='text' placeholder='Description'  class='form-control input-md'></td>");
+
+      $('#tab_logic').append('<tr id="addr'+(i+1)+'"></tr>');
+      i++;
+  });
+     $("#delete_row").click(function(){
+    	 if(i>1){
+		 $("#addr"+(i-1)).html('');
+		 i--;
+		 }
+	 });
+   var j=1;
+   $("#addNewInput").click(function(){
+
+    $('#add'+j).html("<td>"+ (j+1) +"</td><td><input name='date"+j+"' type='text' placeholder='ID' class='form-control input-md'  /> </td><td><input  name='name"+j+"' type='text' placeholder='Name'  class='form-control input-md'></td>");
+
+    $('#doc_add').append('<tr id="add'+(j+1)+'"></tr>');
+    j++;
+});
+          /*$("#getAllInputData").on('click', function() {
+            var a = $('#text-div').children()
+            for(var i = 0; i < a.length; i++) {
+              console.log(a[i].value)
+
+            }
+          })
+          */
+        })
+    </script>
+</body>
+</html>
+<!-- end document-->
