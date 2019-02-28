@@ -36,37 +36,90 @@ app.get('/', function(req,res){
 	res.render("home");
 });
 
-app.get('/test', function(req, res){
-	// var myObj;
-	//res.writeHead(200, {'Content-Type': 'application/json'});
-	// con.query("select * from patient", function(err, result){
-		// console.log(result);
-		// myObj = result;
+// app.get('/test', function(req, res){
+// 	// var myObj;
+// 	//res.writeHead(200, {'Content-Type': 'application/json'});
+// 	// con.query("select * from patient", function(err, result){
+// 		// console.log(result);
+// 		// myObj = result;
 
-		// res.sendFile(__dirname + '/views/test.html',result);
+// 		// res.sendFile(__dirname + '/views/test.html',result);
 		
-		// res.send(result);
-		// console.log(result);
-	// });
+// 		// res.send(result);
+// 		// console.log(result);
+// 	// });
 
-	res.render("test");
+// 	res.render("test");
 	
+// });
+
+// app.get('/test2', function(req,res){
+
+// 	// res.render("test2")
+
+// 	con.query("select * from patient", function(err, results){
+		
+// 		res.render("test2", {results: results});
+
+// 	});
+
+// });
+
+// app.get('/test3', function(req,res){
+
+// 	con.query("select * from patient", function(err, results){
+		
+// 		res.render("test3", {results: results});
+
+// 	});
+
+// });
+
+app.get('/disease',function(req,res){
+	res.render("disease");
 });
 
-app.get('/test2', function(req,res){
-
-	// res.render("test2")
-
+app.get('/getSearch', function(req, res){
+	// res.render("search");
+	
+	// console.log("this is also working");
 	con.query("select * from patient", function(err, results){
 		
-		res.render("test2", {results: results});
+		res.render("search", {results: results});
 
 	});
-
 });
 
-app.get('/card',function(req,res){
-	res.render("card");
+app.post('/search', function(req,res){
+	// console.log("this is working");
+	// console.log(req.body.myCountry);
+	// res.render("search");
+	con.query("select * from patient where name = '"+req.body.myCountry+"'", function(err, results){
+		// console.log(results);
+		res.render("search", {results: results});
+
+	});
+// 	console.log(req.body.myCountry);
+});
+
+app.get('/doctor_register', function(req,res){
+	res.render("doctor_register");
+});
+
+app.get('/patient_register', function(req,res){
+	res.render("patient_register");
+});
+
+app.get('/nurse_register', function(req,res){
+	res.render("nurse_register");
+});
+
+app.get('/login', function(req,res){
+	res.render("login");
+});
+
+app.get('/treatment', function(req,res){
+	res.render("treatment_form");
 });
 
 app.listen(5500);

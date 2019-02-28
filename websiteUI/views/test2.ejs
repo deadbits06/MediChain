@@ -13,9 +13,9 @@
 		#patient_details{
 			overflow: auto;
 		}
-		div>p>strong{
+		/*div>p>strong{
 			font-size: 20px;
-		}
+		}*/
 	</style>
 </head>
 <body>
@@ -24,18 +24,9 @@
 		<% include navbar.ejs %>
 	</div>
 
-	<div class="container" style="margin-top: 5vh;">
-		<form action="" autocomplete="off">
-			<div class="autocomplete form-group row" style="position: relative;">
-				<input type="text" name="patient" placeholder="Enter the Patient name" id="myInput" class="form-control">
-				<button type="button" class="btn btn-primary" style="margin-top: 1vh; border-radius: 50px 50px; padding: 1vh 2vh; font-size: 20px;">Search</button>
-			</div>
-		</form>
-	</div>
-
 	<div class="container-fluid row">
 
-		<div id="patient_details" style="width: 40vw; height: 90vh;margin: 5vh;">
+		<div id="patient_details" style="width: 40vw; height: 90vh;margin: 5vh;margin-top: 10vh;">
 
 			<% results.forEach(function(result) {%>
 
@@ -68,7 +59,7 @@
 		</div>
 
 		<div>
-			<div style="width: 52vw; height: 90vh; overflow: auto;">
+			<div style="width: 52vw; height: 90vh; margin-top: 10vh; overflow: auto;">
 				<div id="patient_view">
 					<img width="170" height="170" style="margin: 2vh 40vh;" id="patient_image">
 					<div style="margin: 5vh 30vh;">
